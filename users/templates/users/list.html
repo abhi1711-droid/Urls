@@ -1,0 +1,22 @@
+{% extends "users/start.html" %}
+{% block title %} List All {% endblock %}
+{% block content %}
+<div class="table-in-box">
+        <table class="table table-striped">
+            <tr>
+                <th>Original Link</th>
+                <th>Short Link</th>
+                <th>Created On</th>
+                <th>Clicks</th>
+            </tr>
+            {% for i in list %}
+            <tr>
+                <td>{{i.original_link}}</td>
+                <td>{{host}}/{{i.short_link}}</td>
+                <td>{{i.created_at}}</td>
+                <td>{{i.clicks}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

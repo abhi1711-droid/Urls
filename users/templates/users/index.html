@@ -1,0 +1,54 @@
+{% extends "users/start.html" %}
+{% block title %} URL Shortener {% endblock %}
+{% block style %}
+.container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.form-url {
+height: 50px;
+width: 350px;
+margin-bottom: 50px;
+padding-top: 11px;
+padding-bottom: 11px;
+border: 1px solid rgba(175,185,197,.36);
+border-radius: 4px;
+background-color: #fff;
+color: #161c34;
+font-size: 20px;
+line-height: 28px;
+}
+{% endblock %}
+{% block content %}
+<div id="container">
+    <div class="form-url">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% if new %}
+    {{ host }}/{{ new.short_link }}
+    {% endif %}
+</div>
+<table class="table table-striped">
+    <tr>
+        <th>Original Link</th>
+        <th>Short Link</th>
+        <th>Created On</th>
+        <th>Clicks</th>
+    </tr>
+    {% for i in five %}
+    <tr>
+        <td>{{i.original_link}}</td>
+        <td>{{host}}/{{i.short_link}}</td>
+        <td>{{i.created_at}}</td>
+        <td>{{i.clicks}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

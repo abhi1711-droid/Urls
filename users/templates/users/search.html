@@ -1,0 +1,22 @@
+{% extends "users/start.html" %}
+{% block title %} Search {% endblock %}
+{% block content %}
+<div id="container">
+    <div class="short-link">
+        <h2>Search for Your Links Here</h2>
+
+        <div class="input-form">
+            <form action="searchlink" method="post">
+                {% csrf_token %}
+                <input type="text" name="short_link" placeholder="Paste Your Short Link here" class="form-url" required/>
+                <input type="submit" value="Search" class="btn-submit"/>
+            </form>
+            {% if link %}
+          <h4>your original link</h4>
+                <a href="{{link}}">{{link}}</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
