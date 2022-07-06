@@ -6,12 +6,12 @@ env = environ.Env()
 environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-LOGIN_REDIRECT_URL = '/users'
-LOGOUT_REDIRECT_URL = "/users/login"
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = "/login"
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -64,12 +64,8 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': '5432',
     }
 }
 
