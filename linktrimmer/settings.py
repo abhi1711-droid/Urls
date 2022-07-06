@@ -2,8 +2,6 @@ from pathlib import Path
 
 import environ
 
-
-
 env = environ.Env()
 environ.Env.read_env()
 
@@ -60,7 +58,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'linktrimmer.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
