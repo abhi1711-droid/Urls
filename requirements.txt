@@ -18,3 +18,4 @@ sqlparse==0.4.2
 validators==0.20.0
 Werkzeug==2.1.2
 whitenoise==6.2.0
+environ==1.0
