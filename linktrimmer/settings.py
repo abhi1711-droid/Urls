@@ -11,7 +11,7 @@ LOGOUT_REDIRECT_URL = "/users/login"
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
